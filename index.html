@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suprise, pretty!</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh;
+    background-color: #000000;
+    flex-direction: column;
+    overflow-x: hidden;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+svg{
+            animation: fadeOut 3s forwards;
+            opacity: 1;
+            
+        }
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+.flower-container {
+  display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 300px; /* You may need to adjust this height */
+}
+
+.heart {
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated; /* Create the pixelated effect */
+    animation: fadeIn 1s ease-in;
+}
+
+.click-button {
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #ed1c24; /* Red button color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 25px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.5s, transform 0.5s; /* Smooth transition */
+    margin: 0 auto; /* Center horizontally */
+    display: block; 
+    pointer-events: auto;
+    z-index: 10;
+    margin-top: 50px;
+}
+
+.click-button:hover {
+    background-color: #ff6666; /* Darker red on hover */
+    transform: scale(1.1); /* Scale up on hover */
+}
+
+.click-button:active {
+  transform: scale(0.9); /* Scale down when button is clicked */
+}
+
+.flower-text {
+    font-size: 24px;
+    color: #ff4d4d;
+    font-family: cursive;
+    margin-top: 20px;
+}
+
+.flower{
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+.additional-content{
+  margin-top: -20%;
+}
+
+/**For the heart in the middle**/
+
+
+span {
+    font-size: 250px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-bottom: 40px;
+    transform: translate(-50%, -50%);
+    background: url("data:image/svg+xml,%3Csvg width='1440' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M%200%2C500%20L%200%2C187%20C%20138.92857142857142%2C181.67857142857144%20277.85714285714283%2C176.35714285714286%20383%2C152%20C%20488.14285714285717%2C127.64285714285714%20559.5000000000001%2C84.25000000000001%20676%2C98%20C%20792.4999999999999%2C111.74999999999999%20954.1428571428571%2C182.64285714285714%201089%2C207%20C%201223.857142857143%2C231.35714285714286%201331.9285714285716%2C209.17857142857144%201440%2C187%20L%201440%2C500%20L%200%2C500%20Z' stroke='none' stroke-width='0' fill='%23ff2a2a' fill-opacity='1'%3E%3C%2Fpath%3E%3C%2Fsvg%3E") center/cover;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: #FF2A2A;
+    background-position-x: 20%;
+    background-position-y: 100%;
+    animation: animate 10s infinite linear;
+}
+
+        @keyframes animate {
+            50% {
+                background-position-x: 100%;
+            }
+        }
+
+        /** For the typing text **/
+    /* Text with typing effect*/
+.typing-effect {
+    font-size: 2.5vw;
+    white-space: nowrap;
+    position: absolute;
+    overflow: hidden;
+    top: 17%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-right: 3px solid #be2047;
+    color: #ed1c24;
+    animation: typing 3s steps(30, end), blink-caret 1s step-end infinite alternate;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .typing-effect {
+    font-size: 6vw; /* Adjust font size for smaller screens */
+    top: 20%; /* Adjust position for smaller screens */
+  }
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 20% }
+  }
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #c84900; }
+  }
+
+
+</style>
+<body>
+  
+  <svg id="line" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 497 111"><defs><style>.cls-1{fill:none;stroke:#ed1c24;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}</style></defs><path class="cls-1" d="M52.5,176.5l5.21-6.94a1.07,1.07,0,0,1,1.66-.07l5.75,6.57a1.26,1.26,0,0,0,1,.44H77.44a2.19,2.19,0,0,0,2.19-2.06L84.5,95.5l4.82,104.12a.45.45,0,0,0,.89.06l4.22-22.81a.45.45,0,0,1,.44-.37h22.91A1.87,1.87,0,0,0,119,176l14.32-13.43a1.27,1.27,0,0,1,2,.28l7.79,13a1.37,1.37,0,0,0,1.18.67h39.56a1.35,1.35,0,0,0,1.06-.53l5.27-7a.44.44,0,0,1,.69,0l6.28,7.17a1.21,1.21,0,0,0,.91.41h12a.45.45,0,0,0,.45-.42l5-79.58,4.82,102.25a.45.45,0,0,0,.89.06l4.22-21.95a.44.44,0,0,1,.44-.36H289.5c2,0,28,2,18,10-5,4-27.35-18.65-36-43v0c-7-26,24-33,42-4,20,30-5,40,2,3a.22.22,0,0,0,0-.08c.05-11.59,20.5-50.58,36.27-28.5a29.89,29.89,0,0,1,5.15,21c-4.29,34.9-30.91,58.91-36.42,63.5-6,5-12-5,0-15,11.5-9.58,37.68-17.33,49.53-15.32,1.21.2,2.41.39,3.62.51,12.47,1.21,29.16,4.84,36.2,9.37a.45.45,0,0,0,.7-.34L415.5,98.5l6,106,4.81-25a1.23,1.23,0,0,1,1.21-1H447a4,4,0,0,0,2.69-1l15.06-13.39a2,2,0,0,1,3,.47l7.08,11.8a2.37,2.37,0,0,0,2,1.14h37.8a1.63,1.63,0,0,0,1.35-.72l4.79-7.18a1,1,0,0,1,1.61-.11l7,7.86a.41.41,0,0,0,.33.15h11.62a1.24,1.24,0,0,0,1.25-1.17L547.5,98.5" transform="translate(-51.5 -94.5)"/>
+  </svg>
+
+
+
+  <script>
+
+  const line = document.querySelectorAll("#line path");
+    for(let i = 0; i<line.length;i++){
+        console.log(`the length of ${i} is ${line[i].getTotalLength()}`);
+    }
+    
+    document.addEventListener('DOMContentLoaded', (event) => {
+
+      
+      
+// After the SVG fades out, append the additional HTML content
+const svg = document.querySelector('svg');
+svg.addEventListener('animationend', () => {
+    const body = document.querySelector('body');
+
+    // For the typing text
+    const audio = new Audio();
+  // Set the source of the audio file
+  audio.src = 'tadhana.mp3';
+  
+  // Play the audio
+  audio.play();
+
+    // Create a div for the typing effect
+    const typingDiv = document.createElement('div');
+        typingDiv.classList.add('typing-effect'); // Apply typing effect to this container
+        typingDiv.textContent = 'Hello there, pretty!';
+        body.appendChild(typingDiv);
+
+    
+    const div = document.createElement('div');
+        div.classList.add('additional-content'); // Apply fade-in animation to this container
+        div.innerHTML = `
+            <body>
+  <div class="flower-container" id="flowerContainer">
+    <span><i class="fa fa-heart"></i></span>
+  </div>
+  <br>
+  <button class="click-button" id="clickButton">Click the button to reveal</button>
+  `;
+        body.appendChild(div);
+
+        // Add event listener to the button
+        const button = document.getElementById('clickButton');
+        button.addEventListener('click', () => {
+            button.style.display = 'none';
+
+            // Redirect to another HTML file
+    window.location.href = 'heart.html';
+          });
+    });
+});
+
+</script>
+  <script src="main.js">
+  </script>
+</body>
+</html>

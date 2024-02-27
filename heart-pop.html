@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hearts Everywhere</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #f0f0f0;
+  }
+  .heart-container {
+    position: absolute;
+    animation: growAndFade 4s forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .heart {
+    font-size: 60px; /* Adjust the font size to make the heart bigger */
+    color: red;
+    position: relative;
+    transform: rotate(45deg); /* Initial rotation */
+    animation: scaleHeart 2s forwards, fadeOut 1s forwards 2s;
+  }
+  .circle {
+    position: absolute;
+    width: 40px; /* Initial width of the ring */
+    height: 40px; /* Initial height of the ring */
+    border: 20px solid rgba(36, 173, 98, 0.849); /* Initial border width and color for the ring */
+    border-radius: 50%; /* Make it a circle */
+    box-sizing: border-box; /* Include border in the element's total width and height */
+    animation: pulseAndThin 2s forwards, fadeOut 4s forwards; /* Animate the ring and fade */
+    padding: 25px; /* Add padding to create space between the heart and the ring */
+  }
+  @keyframes pulseAndThin {
+    0% {
+      transform: scale(2); /* Initial scale */
+      border-width: 60px; /* Thicker initial border width */
+    }
+    50% {
+      transform: scale(2); /* Increase scale */
+      border-width: 3px; /* Decrease border width */
+    }
+    100% {
+      transform: scale(2); /* Larger final size */
+      border-width: 0; /* Decrease border width to 0 */
+    }
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes growAndFade {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    90% {
+      transform: scale(1.5);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0);
+      opacity: 0;
+      color: rgba(228, 74, 47, 0.644); 
+    }
+  }
+  
+</style>
+</head>
+<body>
+<script>
+  function createHeart() {
+    const heartContainer = document.createElement('div');
+    heartContainer.classList.add('heart-container');
+    
+    const heart = document.createElement('i');
+    heart.classList.add('fas', 'fa-heart', 'heart');
+    
+    const circle = document.createElement('div');
+    circle.classList.add('circle');
+
+    const heartSize = Math.random() * 60 + 20; // Random size between 20px and 80px
+    heart.style.fontSize = `${heartSize}px`;
+
+    const circleSize = heartSize * 1;
+    circle.style.width = `${circleSize}px`;
+    circle.style.height = `${circleSize}px`;
+    circle.style.margin = `-${circleSize / 2}px`;
+    
+    // Random position within the viewport
+    const x = Math.random() * window.innerWidth;
+    const y = Math.random() * window.innerHeight;
+    
+    heartContainer.style.left = `${x}px`;
+    heartContainer.style.top = `${y}px`;
+    
+    // Randomly choose the rotation angle with 50% chance for each angle
+    const rotationAngle = Math.random() < 0.5 ? 0 : 45;
+    
+    // Randomly choose the direction of rotation (left or right)
+    const rotationDirection = Math.random() < 0.5 ? -1 : 1;
+    
+    heart.style.transform = `rotate(${rotationDirection * rotationAngle}deg)`; // Rotate the heart
+    
+    heartContainer.appendChild(heart);
+    heartContainer.appendChild(circle);
+    document.body.appendChild(heartContainer);
+    
+    setTimeout(() => {
+      heartContainer.remove(); // Remove heart container after animation duration
+    }, 4000); // Wait for 4 seconds before removing heart container
+}
+
+setInterval(createHeart, 500);
+
+</script>
+</body>
+</html>
